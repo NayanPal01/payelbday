@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Happy Birthday Payel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Fullscreen Rose Petal & Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Sound Toggle Button -->
+  <button id="sound-btn" class="cute-sound-btn" aria-label="Toggle Sound">
+    <span class="sound-dot"></span>
+    <span id="sound-text">Sound: On</span>
+  </button>
+
+  <!-- Mobile Viewport Wrapper -->
+  <main class="mobile-wrapper">
+    <div class="app-container" id="app">
+
+      <!-- ==============================================
+           STAGE 0: VINTAGE WAX-SEAL ENVELOPE (Inspo 0 & 1)
+           ============================================== -->
+      <section class="stage active" id="stage-envelope">
+        <!-- Painted Tulips Top Right & Bottom Left -->
+        <div class="tulip-decor top-right">
+          <svg viewBox="0 0 100 100" fill="none" class="tulip-svg">
+            <path d="M90 10 C60 40, 40 70, 30 95" stroke="#2D5A43" stroke-width="3" stroke-linecap="round" />
+            <path d="M55 45 C40 35, 25 35, 20 45 C30 55, 45 50, 55 45 Z" fill="#3D7357" />
+            <path d="M70 28 C80 18, 92 12, 98 18 C100 28, 88 35, 75 30 Z" fill="#B32638" />
+            <ellipse cx="85" cy="20" rx="9" ry="14" transform="rotate(35 85 20)" fill="#D9384C" />
+            <path d="M38 65 C48 55, 60 52, 65 58 C65 68, 52 75, 40 70 Z" fill="#B32638" />
+            <ellipse cx="50" cy="62" rx="7" ry="11" transform="rotate(25 50 62)" fill="#D9384C" />
+          </svg>
+        </div>
+
+        <div class="tulip-decor bottom-left">
+          <svg viewBox="0 0 100 100" fill="none" class="tulip-svg flip">
+            <path d="M10 90 C40 60, 60 30, 70 5" stroke="#2D5A43" stroke-width="3" stroke-linecap="round" />
+            <path d="M45 55 C60 65, 75 65, 80 55 C70 45, 55 50, 45 55 Z" fill="#3D7357" />
+            <ellipse cx="20" cy="75" rx="8" ry="13" transform="rotate(-30 20 75)" fill="#D9384C" />
+            <ellipse cx="55" cy="35" rx="7" ry="11" transform="rotate(-20 55 35)" fill="#B32638" />
+          </svg>
+        </div>
+
+        <div class="watercolor-heart heart-tl">♥</div>
+        <div class="watercolor-heart heart-bl">♥</div>
+        <div class="watercolor-heart heart-br">♥</div>
+
+        <div class="envelope-header">
+          <h1 class="brush-script-title">For Payel</h1>
+          <p class="envelope-subtitle">A special birthday delivery waiting for you</p>
+        </div>
+
+        <!-- Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <div class="envelope-flap" id="envelope-flap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-letter-peek" id="envelope-letter">
+              <span class="peek-text">Happy Birthday</span>
+            </div>
+            <!-- Wax Seal Stamp -->
+            <div class="wax-seal" id="wax-seal">
+              <div class="wax-seal-inner">
+                <svg viewBox="0 0 30 30" class="wax-stamp-svg">
+                  <path d="M15 5 C12 10, 8 13, 15 17 C22 13, 18 10, 15 5 Z" fill="#4A0E17" />
+                  <path d="M8 15 C12 12, 14 17, 15 15 C14 13, 12 18, 8 15 Z" fill="#4A0E17" />
+                  <circle cx="15" cy="15" r="2.5" fill="#4A0E17" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="seal-tap-prompt">
+            <span class="pulsing-hand">Tap the wax seal to open</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           STAGE 1: THE CANDLE SCENE
+           ============================================== -->
+      <section class="stage" id="stage-candle">
+        <header class="stage-header">
+          <div class="gingham-tag">A Birthday Wish</div>
+          <h2 class="brush-script-title">Make a Wish</h2>
+          <p class="aesthetic-desc">Close your eyes, make your wish, then tap the candle to blow it out.</p>
+        </header>
+
+        <div class="candle-cozy-container" id="candle-trigger">
+          <div class="candle-ambient-warmth" id="candle-aura"></div>
+          <div class="deckle-frame">
+            <img src="assets/flame.png" id="flame-img" alt="Candle flame" class="candle-photo">
+            <div class="cozy-flame-glow" id="flame-glow"></div>
+            <div class="smoke-wisp" id="smoke-wisp"></div>
+          </div>
+          <div class="touch-hint-pill">👆 Touch candle to blow it out</div>
+        </div>
+
+        <footer class="stage-footer">
+          <button class="cute-btn primary-red-btn" id="blow-btn">
+            Blow the Candle
+          </button>
+        </footer>
+      </section>
+
+      <!-- ==============================================
+           STAGE 2: BLACKOUT TRANSITION
+           ============================================== -->
+      <section class="stage" id="stage-blackout">
+        <div class="cozy-blackout" id="blackout-curtain">
+          <div class="blackout-inner">
+            <div class="soft-glow-dot"></div>
+            <h2 class="blackout-title">The lights went off.</h2>
+            <p class="blackout-sub">Turn them back on to see your birthday cake.</p>
+            <button class="cute-btn switch-btn" id="lights-btn">
+              Turn on Lights
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           STAGE 3: CAKE & TOUCH-ONLY CAKE CUTTING
+           ============================================== -->
+      <section class="stage" id="stage-cut-cake">
+        <header class="stage-header">
+          <div class="gingham-tag">Happy Birthday</div>
+          <h2 class="brush-script-title" id="cake-title">Touch Cake to Cut</h2>
+          <p class="aesthetic-desc" id="cake-desc">Simply touch the cake directly to take your first slice.</p>
+        </header>
+
+        <div class="cake-interactive-box" id="cake-cut-area">
+          <div class="deckle-frame cake-frame" id="touch-cake-target">
+            <img src="assets/cake.png" id="uncut-cake-img" alt="Whole Cake" class="cake-layer-front">
+            <img src="assets/cuttedcake.png" id="cutted-cake-img" alt="Cut Cake" class="cake-layer-back hidden">
+            <div class="slice-laser-line" id="slice-line"></div>
+
+            <!-- Teddy Bear Accent from Inspo 2 -->
+            <div class="teddy-accent bottom-right">
+              <svg viewBox="0 0 100 110" class="teddy-svg">
+                <circle cx="28" cy="24" r="14" fill="#5A3828" />
+                <circle cx="28" cy="24" r="8" fill="#8B5A42" />
+                <circle cx="72" cy="24" r="14" fill="#5A3828" />
+                <circle cx="72" cy="24" r="8" fill="#8B5A42" />
+                <ellipse cx="50" cy="42" rx="28" ry="24" fill="#6A4230" />
+                <ellipse cx="50" cy="48" rx="12" ry="9" fill="#8B5A42" />
+                <ellipse cx="50" cy="44" rx="4" ry="3" fill="#22130C" />
+                <circle cx="40" cy="38" r="3.5" fill="#22130C" />
+                <circle cx="39" cy="37" r="1.2" fill="#FFF" />
+                <circle cx="60" cy="38" r="3.5" fill="#22130C" />
+                <circle cx="59" cy="37" r="1.2" fill="#FFF" />
+                <ellipse cx="50" cy="80" rx="30" ry="26" fill="#6A4230" />
+                <ellipse cx="30" cy="98" rx="14" ry="10" fill="#5A3828" />
+                <ellipse cx="70" cy="98" rx="14" ry="10" fill="#5A3828" />
+                <path d="M50 68 C40 54, 26 62, 34 76 C42 86, 50 94, 50 94 C50 94, 58 86, 66 76 C74 62, 60 54, 50 68 Z"
+                  fill="#D9384C" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="touch-cue-banner" id="touch-cue-banner">
+            👆 Tap anywhere on the cake to cut!
+          </div>
+
+          <div class="slice-notice hidden" id="slice-notice">
+            The biggest slice is all yours!
+          </div>
+        </div>
+
+        <footer class="stage-footer">
+          <button class="cute-btn gingham-accent-btn hidden" id="to-celebration-btn">
+            Celebrate with Party 🎉
+          </button>
+        </footer>
+      </section>
+
+      <!-- ==============================================
+           STAGE 4: FULL CELEBRATION VIDEO (vdoframe.mp4 - FIXED)
+           ============================================== -->
+      <section class="stage" id="stage-celebration-vdo">
+        <header class="stage-header">
+          <div class="gingham-tag">Party Time</div>
+          <h2 class="brush-script-title">Happy Birthday Payel!</h2>
+          <p class="aesthetic-desc">Celebrating your special day.</p>
+        </header>
+
+        <!-- Uncropped, Full Clarity Celebration Video -->
+        <div class="full-clarity-video-wrap">
+          <video id="vdoframe-player" playsinline autoplay muted loop preload="auto">
+            <source src="vdoframe.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <footer class="stage-footer">
+          <button class="cute-btn primary-red-btn" id="to-vdo2-btn">
+            Watch Special Video of You 💖
+          </button>
+        </footer>
+      </section>
+
+      <!-- ==============================================
+           STAGE 5: FULL SCREEN CLARITY VIDEO OF HER (vdo2.mp4)
+           (vdo2.mp4 comes BEFORE showing pic1 to pic9!)
+           ============================================== -->
+      <section class="stage" id="stage-vdo2-fullscreen">
+        <header class="stage-header">
+          <div class="gingham-tag">Birthday Star</div>
+          <h2 class="brush-script-title">For You, Payel</h2>
+        </header>
+
+        <div class="vdo2-dedicated-container">
+          <!-- Full-Screen Clarity Portrait Video Player (vdo2.mp4) -->
+          <div class="fullscreen-vdo2-wrapper">
+            <video id="vdo2-player" playsinline autoplay muted loop preload="auto">
+              <source src="vdo2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Sweet Words From A Good Friend -->
+          <div class="fullscreen-sweet-words">
+            <div class="pixel-girl-badge">
+              <img src="assets/inspo_girl.jpg" alt="Cute Payel" class="pixel-girl-avatar">
+            </div>
+            <p class="friend-quote">
+              "Happy Birthday, Payel! Thank you for being such an authentic, comforting, and wonderful friend. Here's to
+              another year of big smiles, endless laughter, and all your dreams coming true."
+            </p>
+            <div class="friend-signature">— With love, from your good friend ✨</div>
+          </div>
+        </div>
+
+        <footer class="stage-footer">
+          <button class="cute-btn primary-red-btn" id="to-gallery-btn">
+            View All Your Photo Memories ↓
+          </button>
+        </footer>
+      </section>
+
+      <!-- ==============================================
+           STAGE 6: SCROLLABLE PHOTO MEMORIES (Pic 1 to Pic 9)
+           (Comes AFTER vdo2.mp4 with Love Counter & Replay!)
+           ============================================== -->
+      <section class="stage" id="stage-gallery">
+        <header class="stage-header">
+          <div class="gingham-tag">Photo Album</div>
+          <h2 class="brush-script-title">Moments of You</h2>
+          <p class="aesthetic-desc">Scroll down to look through some of your best memories.</p>
+        </header>
+
+        <!-- Continuous Vertical Scrollable Feed -->
+        <div class="scrollable-photo-feed" id="photo-feed">
+          <!-- Injected by JS: 9 scrollable photo cards with handwritten words -->
+        </div>
+
+        <footer class="stage-footer sticky-footer">
+          <!-- Interactive Love Heart Counter -->
+          <div class="cute-love-container">
+            <button class="love-pill-btn" id="love-btn">
+              <span class="heart-icon">♥</span> Send Love
+              <span class="love-badge" id="love-count">0</span>
+            </button>
+          </div>
+          <button class="cute-btn outline-btn" id="replay-btn">
+            Open Surprise from Start 🔄
+          </button>
+        </footer>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
