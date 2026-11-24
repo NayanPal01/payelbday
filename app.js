@@ -402,17 +402,6 @@ function initScrollableFeed() {
     `;
     feed.appendChild(card);
   });
-
-  // Special Cute Pixel Art Inspiration Card at the end of the memories
-  const closingCard = document.createElement('article');
-  closingCard.className = 'feed-photo-card pixel-closing-card';
-  closingCard.innerHTML = `
-    <div class="feed-img-holder pixel-holder">
-      <img src="assets/inspo_girl.jpg" alt="Sweet Birthday Girl" class="pixel-girl-feed-img">
-    </div>
-    <div class="feed-caption-text">"Stay cozy, keep blooming, and shine bright always! 🌸💖"</div>
-  `;
-  feed.appendChild(closingCard);
 }
 
 // ==========================================
